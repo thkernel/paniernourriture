@@ -1,0 +1,36 @@
+# == Schema Information
+#
+# Table name: members
+#
+#  id            :bigint           not null, primary key
+#  uid           :string
+#  first_name    :string
+#  last_name     :string
+#  civility      :string
+#  role_id       :bigint           not null
+#  restaurant_id :bigint           not null
+#  status        :string
+#  description   :text
+#  created_at    :datetime         not null
+#  updated_at    :datetime         not null
+#
+
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  first_name: MyString
+  last_name: MyString
+  sex: MyString
+  role: one
+  restaurant: one
+  status: MyString
+  description: MyText
+
+two:
+  first_name: MyString
+  last_name: MyString
+  sex: MyString
+  role: two
+  restaurant: two
+  status: MyString
+  description: MyText

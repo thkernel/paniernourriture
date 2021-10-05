@@ -1,0 +1,35 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Restaurant Opening Times</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Uid</th>
+      <th>Restaurant</th>
+      <th>Day</th>
+      <th>Start time</th>
+      <th>End time</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @restaurant_opening_times.each do |restaurant_opening_time| %>
+      <tr>
+        <td><%= restaurant_opening_time.uid %></td>
+        <td><%= restaurant_opening_time.restaurant_id %></td>
+        <td><%= restaurant_opening_time.day %></td>
+        <td><%= restaurant_opening_time.start_time %></td>
+        <td><%= restaurant_opening_time.end_time %></td>
+        <td><%= link_to 'Show', restaurant_opening_time %></td>
+        <td><%= link_to 'Edit', edit_restaurant_opening_time_path(restaurant_opening_time) %></td>
+        <td><%= link_to 'Destroy', restaurant_opening_time, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Restaurant Opening Time', new_restaurant_opening_time_path %>

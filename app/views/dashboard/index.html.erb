@@ -1,0 +1,10 @@
+
+<% if current_account.accountable.superuser? %>
+    <%= render "dashboard/partials/superuser_dashboard" %>
+<% elsif current_account.user? %>
+    
+<% elsif current_account.accountable.customer? %>
+    <%= render "dashboard/partials/agency-dashboard" %>
+
+<% end %>
+

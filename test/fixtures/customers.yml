@@ -1,0 +1,47 @@
+# == Schema Information
+#
+# Table name: customers
+#
+#  id          :bigint           not null, primary key
+#  uid         :string
+#  first_name  :string
+#  last_name   :string
+#  civility    :string
+#  address     :string
+#  country     :string
+#  city        :string
+#  phone       :string
+#  street      :string
+#  po_box      :string
+#  zip_code    :string
+#  description :text
+#  status      :string
+#  created_at  :datetime         not null
+#  updated_at  :datetime         not null
+#
+
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  uid: MyString
+  first_name: MyString
+  last_name: MyString
+  sex: MyString
+  address: MyString
+  country: MyString
+  city: MyString
+  phone: MyString
+  description: MyText
+  status: MyString
+
+two:
+  uid: MyString
+  first_name: MyString
+  last_name: MyString
+  sex: MyString
+  address: MyString
+  country: MyString
+  city: MyString
+  phone: MyString
+  description: MyText
+  status: MyString

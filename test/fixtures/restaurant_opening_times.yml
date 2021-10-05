@@ -1,0 +1,29 @@
+# == Schema Information
+#
+# Table name: restaurant_opening_times
+#
+#  id            :bigint           not null, primary key
+#  uid           :string
+#  restaurant_id :bigint           not null
+#  day           :string
+#  start_time    :time
+#  end_time      :time
+#  created_at    :datetime         not null
+#  updated_at    :datetime         not null
+#
+
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  uid: MyString
+  restaurant: one
+  day: MyString
+  start_time: 2021-10-04 17:44:29
+  end_time: 2021-10-04 17:44:29
+
+two:
+  uid: MyString
+  restaurant: two
+  day: MyString
+  start_time: 2021-10-04 17:44:29
+  end_time: 2021-10-04 17:44:29
