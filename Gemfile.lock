@@ -88,9 +88,9 @@ GEM
       debug_inspector (>= 0.0.1)
     bootsnap (1.9.1)
       msgpack (~> 1.0)
-    bootstrap (5.1.0)
+    bootstrap (4.6.0)
       autoprefixer-rails (>= 9.1.0)
-      popper_js (>= 2.9.3, < 3)
+      popper_js (>= 1.14.3, < 2)
       sassc-rails (>= 2.0.0)
     breadcrumbs_on_rails (4.1.0)
       railties (>= 5.0)
@@ -159,9 +159,8 @@ GEM
     faker (1.9.6)
       i18n (>= 0.7)
     ffi (1.15.4)
-    font_awesome5_rails (1.5.0)
-      nokogiri (>= 1.11.3)
-      railties (>= 4.2)
+    font-awesome-rails (4.7.0.7)
+      railties (>= 3.2, < 7)
     friendly_id (5.4.2)
       activerecord (>= 4.0.0)
     globalid (0.5.2)
@@ -220,7 +219,7 @@ GEM
     pg_search (2.3.5)
       activerecord (>= 5.2)
       activesupport (>= 5.2)
-    popper_js (2.9.3)
+    popper_js (1.16.0)
     premailer (1.15.0)
       addressable
       css_parser (>= 1.6.0)
@@ -358,7 +357,7 @@ DEPENDENCIES
   better_errors
   binding_of_caller
   bootsnap (>= 1.4.4)
-  bootstrap (~> 5.0, >= 5.0.1)
+  bootstrap (~> 4.3, >= 4.3.1)
   breadcrumbs_on_rails (~> 4.0)
   byebug
   cancancan (~> 3.0, >= 3.0.1)
@@ -377,7 +376,7 @@ DEPENDENCIES
   devise-i18n (~> 1.8)
   dotenv-rails (~> 2.7, >= 2.7.6)
   faker (~> 1.9, >= 1.9.3)
-  font_awesome5_rails
+  font-awesome-rails (~> 4.7, >= 4.7.0.5)
   friendly_id (~> 5.2, >= 5.2.5)
   jbuilder (~> 2.7)
   jquery-rails (~> 4.3, >= 4.3.3)

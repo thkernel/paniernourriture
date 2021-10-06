@@ -19,5 +19,10 @@ class City < ApplicationRecord
 
   before_save :generate_random_number_uid
   
-  belongs_to :user
+  belongs_to :account
+
+  # Change default params ID to uid
+  def to_param
+    uid
+  end
 end

@@ -19,8 +19,8 @@ require("../vendor/bracket/lib/perfect-scrollbar/perfect-scrollbar.min")
 //import "../vendor/bracket/lib/echarts/echarts.min";
 //import "../vendor/bracket/lib/select2/js/select2.full.min";
 
-require("../vendor/bracket/js/bracket")
-require("../vendor/bracket/js/ResizeSensor")
-require("../vendor/bracket/js/dashboard")
+//require("../vendor/bracket/js/bracket")
+//require("../vendor/bracket/js/ResizeSensor")
+//require("../vendor/bracket/js/dashboard")
 
 require("./init_datatables")

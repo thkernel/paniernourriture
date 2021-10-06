@@ -12,18 +12,33 @@
     </button>
 
   <div class="collapse navbar-collapse" id="navbarSupportedContentt">
-    <ul class="navbar-nav flex-row flex-wrap bd-navbar-nav pt-2 py-md-0">
+    <ul class="navbar-nav mr-auto">
       
       
     </ul>
 
-    <ul class="navbar-nav flex-row flex-wrap ms-md-auto">
+    <ul class="navbar-nav ml-auto">
       
-      <li class="nav-item col-6 col-md-auto">
+      <% if account_signed_in? %>
+        <li class="nav-item">
         <!-- <a class="nav-link" href="#">Link</a> -->
-          <%=  link_to "Se connecter", new_account_session_path, class: "btn btn-link" %>
-          
+          <%= link_to raw('<i class="fa fa-user" aria-hidden="true"></i>
+ Mon compte'), dashboard_path, class: "btn btn-link" %>
         </li>
+        <li class="nav-item">
+          <%= link_to "Se déconnecter", destroy_account_session_path, method: :delete,  class: "btn btn-link"  %>
+        </li>
+
+        <% else %>
+        <li class="nav-item">
+        <!-- <a class="nav-link" href="#">Link</a> -->
+          <%= link_to "Se connecter", new_account_session_path, class: "btn btn-link" %>
+        </li>
+        <li class="nav-item">
+        <!-- <a class="nav-link" href="#">Link</a> -->
+        <!--  link_to "S'inscrire", new_user_registration_path, class: "btn btn-primary" -->
+        </li>
+      <% end %>
       
      
       

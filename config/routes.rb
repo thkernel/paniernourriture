@@ -1,19 +1,50 @@
 Rails.application.routes.draw do
   
   
-  resources :restaurant_opening_times
-  resources :order_statuses
-  resources :order_items
-  resources :orders
-  resources :customers
-  resources :food_restaurants
-  resources :foods
-  resources :restaurants
-  resources :users
+  resources :restaurant_opening_times do 
+    get "delete"
+  end
+  
+  resources :order_statuses do 
+    get "delete"
+  end
+
+  resources :order_items do 
+    get "delete"
+  end
+
+  resources :orders do 
+    get "delete"
+  end
+
+  resources :customers do 
+    get "delete"
+  end
+
+  resources :food_restaurants do 
+    get "delete"
+  end
+
+  resources :foods do 
+    get "delete"
+  end
+
+  resources :restaurants do 
+    get "delete"
+  end
+
+  resources :users do 
+    get "delete"
+  end
+
   get "/search" => "searches#advanced_search", as: :advanced_search
-  resources :cities
+  
+  resources :cities do 
+    get "delete"
+  end
+
   resources :features do 
-  	get "detele"
+  	get "delete"
   end
 
   #resources :smtp_server_settings

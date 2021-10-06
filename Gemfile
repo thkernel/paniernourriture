@@ -60,19 +60,20 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 #additional gem
 #gem 'autoprefixer-rails', '~> 9.8', '>= 9.8.6.5'
 gem 'turbolinks', '~> 5.2'
+
 gem 'jquery-rails', '~> 4.3', '>= 4.3.3'
 gem 'devise', '~> 4.6', '>= 4.6.2'
 gem 'devise-i18n', '~> 1.8'
 gem 'cancancan', '~> 3.0', '>= 3.0.1'
-#gem 'font-awesome-rails', '~> 4.7', '>= 4.7.0.5'
-gem 'font_awesome5_rails'
+gem 'font-awesome-rails', '~> 4.7', '>= 4.7.0.5'
+#gem 'font_awesome5_rails'
 #gem 'font-awesome-sass', '~> 5.0.13'
 
 gem 'pg', '~> 1.1', '>= 1.1.4'
 gem 'pg_search', '~> 2.3'
 gem 'sassc', '~> 2.0', '>= 2.0.1'
-#gem 'bootstrap', '~> 4.3', '>= 4.3.1'
-gem 'bootstrap', '~> 5.0', '>= 5.0.1'
+gem 'bootstrap', '~> 4.3', '>= 4.3.1'
+#gem 'bootstrap', '~> 5.0', '>= 5.0.1'
 
 #gem 'bootstrap-sass', '~> 3.3.7'
 #gem 'tailwindcss-rails', '~> 0.3.3'

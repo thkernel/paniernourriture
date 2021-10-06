@@ -73,7 +73,7 @@ unless Account.all.present?
     #users = User.all
 else
 
-     users = User.all
+     accounts = Account.all
 end
 
 
@@ -81,10 +81,36 @@ end
 unless City.all.present?
     cities = City.create([
         {
-            name: "Mali", 
-            account_id: accounts.first.id,
-            
-             
+            name: "Bamako", 
+            account_id: accounts.first.id,   
+        },
+        {
+            name: "Kayes", 
+            account_id: accounts.first.id,   
+        },
+        {
+            name: "Koulikoro", 
+            account_id: accounts.first.id,   
+        },
+        {
+            name: "Sikasso", 
+            account_id: accounts.first.id,   
+        },
+        {
+            name: "Ségou", 
+            account_id: accounts.first.id,   
+        },
+        {
+            name: "Mopti", 
+            account_id: accounts.first.id,   
+        },
+        {
+            name: "Tombouctou", 
+            account_id: accounts.first.id,   
+        },
+        {
+            name: "Gao", 
+            account_id: accounts.first.id,   
         }
     
     ])

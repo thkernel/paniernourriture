@@ -24,4 +24,10 @@ class Member < ApplicationRecord
   
   belongs_to :role
   belongs_to :restaurant
+
+  # Change default params ID to uid
+  def to_param
+    uid
+  end
+  
 end

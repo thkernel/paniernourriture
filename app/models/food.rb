@@ -20,4 +20,9 @@ class Food < ApplicationRecord
 
   before_save :generate_random_number_uid
   
+  # Change default params ID to uid
+  def to_param
+    uid
+  end
+  
 end

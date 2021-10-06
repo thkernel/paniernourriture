@@ -1,6 +1,10 @@
 class CitiesController < ApplicationController
-  before_action :set_city, only: %i[ show edit update destroy ]
+  #authorize_resource
+  
+  before_action :authenticate_account!
 
+  before_action :set_city, only: %i[ show edit update destroy ]
+  layout "dashboard"
   # GET /cities or /cities.json
   def index
     @cities = City.all
