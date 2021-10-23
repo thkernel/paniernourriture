@@ -1,4 +1,4 @@
-APPLICATION_NAME = "FoodPress"
+APPLICATION_NAME = "FoodPlace"
 APPLICATION_SLOGAN = "Commandez et nous vous livrons!"
 APPLICATION_DESCRIPTION = "Plateforme de reservation de nouriture dans des restaurants à Bamako."
 APPLICATION_KEYWORDS = [""]
