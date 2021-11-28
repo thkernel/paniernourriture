@@ -1,6 +1,7 @@
 class RestaurantsController < ApplicationController
+  before_action :authenticate_account!
   before_action :set_restaurant, only: %i[ show edit update destroy ]
-
+  layout "dashboard"
   # GET /restaurants or /restaurants.json
   def index
     @restaurants = Restaurant.all
