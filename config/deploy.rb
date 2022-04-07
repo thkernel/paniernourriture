@@ -4,8 +4,8 @@ lock "~> 3.16.0"
 set :stages, %w(production staging)
 set :default_stage, "production"
 
-set :application, "foodplace"
-set :repo_url, "https://github.com/thkernel/foodpress.git"
+set :application, "paniernourriture"
+set :repo_url, "https://github.com/thkernel/paniernourriture.git"
 #set :ssh_options, { auth_methods: %w(password), password: "AMOSXZIBITDE88" }
 
 # Default branch is :master
