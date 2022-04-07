@@ -6,21 +6,21 @@
 # server "example.com", user: "deploy", roles: %w{app db web}, my_property: :my_value
 # server "example.com", user: "deploy", roles: %w{app web}, other_property: :other_value
 # server "db.example.com", user: "deploy", roles: %w{db}
-set :application, "foodplace.prod"               # the name of your website - should also be the name of the directory
-set :deploy_to, "/home/ubuntu/foodplace/foodplace.prod"   # the path to your new deployment directory on the server - by default, the name of the application (e.g. "/var/www/sites/example.com")
+set :application, "paniernourriture.prod"               # the name of your website - should also be the name of the directory
+set :deploy_to, "/home/ubuntu/apps/rails/paniernourriture/paniernourriture.prod"   # the path to your new deployment directory on the server - by default, the name of the application (e.g. "/var/www/sites/example.com")
 set :rails_env, "production"
 
-server "51.38.235.131", user: "root", roles: %w{app db web}, ssh_options: {forward_agent: true}
-#server "foodplace.ml", user: "root", roles: %w{app db web}, ssh_options: {forward_agent: true}
+#server "51.38.235.131", user: "root", roles: %w{app db web}, ssh_options: {forward_agent: true}
+server "paniernourriture.com", user: "ubuntu", roles: %w{app db web}, ssh_options: {forward_agent: true}
 
 set :branch, "master"
-set :port, 3034
+set :port, 3000
 
 
 
 
- set :nginx_config_name, "foodplace.prod"
- set :nginx_server_name, "foodplace.prod"
+ set :nginx_config_name, "paniernourriture.prod"
+ set :nginx_server_name, "paniernourriture.prod"
  set :puma_workers, 1
 
 # role-based syntax
@@ -75,9 +75,9 @@ set :port, 3034
 #   }
 
 
-#set :pty, true
-#set :ssh_options, {
-  #forward_agent: true,
-  #auth_methods: ["publickey"],
-  #keys: ["~/cleGedwinUbuntu.pem"]
-#}
+set :pty, true
+set :ssh_options, {
+  forward_agent: true,
+  auth_methods: ["publickey"],
+  keys: ["~/paniernourriture.pem"]
+}

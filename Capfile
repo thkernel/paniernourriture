@@ -34,11 +34,11 @@ install_plugin Capistrano::SCM::Git
 # require "capistrano/rails/migrations"
 # require "capistrano/passenger"
 
-require "capistrano/rvm"
-# require "capistrano/rbenv"
+#require "capistrano/rvm"
+require "capistrano/rbenv"
 require "capistrano/rails"
 require "capistrano/bundler"
-#require "capistrano/rails/assets"
+require "capistrano/rails/assets"
 require "capistrano/rails/migrations"
 #require "whenever/capistrano"
 require 'capistrano/rails/collection'
@@ -48,7 +48,7 @@ install_plugin Capistrano::Puma::Workers  # if you want to control the workers (
 install_plugin Capistrano::Puma::Jungle # if you need the jungle tasks
 #install_plugin Capistrano::Puma::Monit  # if you need the monit tasks
 install_plugin Capistrano::Puma::Nginx  # if you want to upload a nginx site templat
-#install_plugin Capistrano::Puma::Systemd
+
 #require 'capistrano/puma'
 
 # Load custom tasks from `lib/capistrano/tasks` if you have any defined

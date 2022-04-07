@@ -124,11 +124,13 @@ group :development do
   gem 'annotate', '~> 2.7', '>= 2.7.5'
   gem 'faker', '~> 1.9', '>= 1.9.3'
   gem 'capistrano', '~> 3.10', '>= 3.10.2'
+  gem 'capistrano-bundler', '~> 2.0', '>= 2.0.1'
   # For rails requirement
   gem 'capistrano-rails', '~> 1.3', '>= 1.3.1'
   gem 'capistrano-rails-collection', '~> 0.1.0'
   # For rvm
-  gem 'capistrano-rvm', '~> 0.1.2'
+  #gem 'capistrano-rvm', '~> 0.1.2'
+  gem 'capistrano-rbenv', '~> 2.2'
 
   # For puma
   gem 'capistrano3-puma', '~> 3.1', '>= 3.1.1'
