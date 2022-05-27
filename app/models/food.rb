@@ -2,15 +2,16 @@
 #
 # Table name: foods
 #
-#  id          :bigint           not null, primary key
-#  uid         :string
-#  slug        :string
-#  name        :string
-#  status      :string
-#  description :text
-#  account_id  :bigint           not null
-#  created_at  :datetime         not null
-#  updated_at  :datetime         not null
+#  id               :bigint           not null, primary key
+#  uid              :string
+#  slug             :string
+#  food_category_id :bigint
+#  name             :string
+#  status           :string
+#  description      :text
+#  account_id       :bigint           not null
+#  created_at       :datetime         not null
+#  updated_at       :datetime         not null
 #
 
 class Food < ApplicationRecord
@@ -20,6 +21,7 @@ class Food < ApplicationRecord
 
   before_save :generate_random_number_uid
   
+  belongs_to :food_category
   # Change default params ID to uid
   def to_param
     uid

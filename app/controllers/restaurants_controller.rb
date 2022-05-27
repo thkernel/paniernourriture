@@ -22,15 +22,18 @@ class RestaurantsController < ApplicationController
 
   # POST /restaurants or /restaurants.json
   def create
-    @restaurant = Restaurant.new(restaurant_params)
+    @restaurant = current_account.restaurants.build(restaurant_params)
 
     respond_to do |format|
       if @restaurant.save
+        @restaurants = Restaurant.all
         format.html { redirect_to @restaurant, notice: "Restaurant was successfully created." }
         format.json { render :show, status: :created, location: @restaurant }
+        format.js
       else
         format.html { render :new, status: :unprocessable_entity }
         format.json { render json: @restaurant.errors, status: :unprocessable_entity }
+        format.js
       end
     end
   end
@@ -39,13 +42,20 @@ class RestaurantsController < ApplicationController
   def update
     respond_to do |format|
       if @restaurant.update(restaurant_params)
+        @restaurants = Restaurant.all
         format.html { redirect_to @restaurant, notice: "Restaurant was successfully updated." }
         format.json { render :show, status: :ok, location: @restaurant }
+        format.js
       else
         format.html { render :edit, status: :unprocessable_entity }
         format.json { render json: @restaurant.errors, status: :unprocessable_entity }
+        format.js
       end
     end
+  end
+
+  def delete
+    @restaurant = Restaurant.find_by(uid: params[:restaurant_id])
   end
 
   # DELETE /restaurants/1 or /restaurants/1.json
@@ -60,11 +70,11 @@ class RestaurantsController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_restaurant
-      @restaurant = Restaurant.find(params[:id])
+      @restaurant = Restaurant.find_by(uid: params[:id])
     end
 
     # Only allow a list of trusted parameters through.
     def restaurant_params
-      params.require(:restaurant).permit(:uid, :slug, :name, :address, :country, :city, :status, :description)
+      params.require(:restaurant).permit(:name, :address, :country, :city, :phone, :description)
     end
 end

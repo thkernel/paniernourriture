@@ -5,9 +5,36 @@
           <%= link_to  raw('<i class="fa fa-home tx-20"></i> <span class="menu-item-label">Tableau de bord</span>'), dashboard_path, class: "br-menu-link #{current? "active", dashboard_path}" %>
         </li><!-- br-menu-item -->
 
+        
+
         <li class="br-menu-item">
-          <%= link_to  raw('<i class="fa fa-book tx-20"></i> <span class="menu-item-label">Restaurants</span>'), restaurants_path, class: "br-menu-link #{current? "active", restaurants_path}" %>
-        </li><!-- br-menu-item -->
+          <a href="#" class="br-menu-link with-sub">
+            <i class="fas fa-utensils tx-20"></i>
+            <span class="menu-item-label">Restaurants</span>
+          </a><!-- br-menu-link -->
+          <ul class="br-menu-sub">
+            
+            <li class="sub-item">
+                <%= link_to  "Restaurants", restaurants_path, class: "sub-link #{current? "active", restaurants_path}" %>
+            </li>
+
+            <li class="sub-item">
+                <%= link_to  "Catégories de nourritures", food_categories_path, class: "sub-link #{current? "active", food_categories_path}" %>
+            </li>
+
+            <li class="sub-item">
+                <%= link_to  "Nourritures", foods_path, class: "sub-link #{current? "active", foods_path}" %>
+            </li>
+
+            <li class="sub-item">
+                <%= link_to  "Restaurants & Nourritures", food_restaurants_path, class: "sub-link #{current? "active", food_restaurants_path}" %>
+            </li>
+
+            
+
+
+          </ul>
+        </li>
 
         
        

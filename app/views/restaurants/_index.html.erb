@@ -1,0 +1,22 @@
+<% @restaurants.each do |restaurant| %>
+  <tr>
+   
+    <td><%= restaurant.name %></td>
+   
+    <td><%= restaurant.city %></td>
+    
+    
+    <td>
+        <div class="action-buttons">
+            <%= link_to raw('<i class="fa fa-pencil" aria-hidden="true"></i>
+'),  edit_restaurant_path(restaurant.uid), title: "Modifier", remote: true %>
+
+
+
+
+<%= link_to raw('<i class="far fa-trash-alt"></i>
+'), restaurant_delete_path(restaurant.uid), remote: true, title: "Supprimer", class: "delete" %>
+</div>
+</td>
+  </tr>
+<% end %>

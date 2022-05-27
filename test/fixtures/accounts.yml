@@ -9,6 +9,7 @@
 #  encrypted_password     :string           default(""), not null
 #  accountable_type       :string
 #  accountable_id         :bigint
+#  role_id                :bigint           not null
 #  reset_password_token   :string
 #  reset_password_sent_at :datetime
 #  remember_created_at    :datetime

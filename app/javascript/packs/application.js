@@ -13,8 +13,14 @@ Rails.start()
 Turbolinks.start()
 ActiveStorage.start()
 
+// To fix rails-ujs error.
+window.jQuery = $;
+window.$ = $;
+
 import "bootstrap";
+//import 'bootstrap/dist/js/bootstrap'
 import "@fortawesome/fontawesome-free/css/all";
+//import '@fortawesome/fontawesome-free';
 
 import "../stylesheets/application";
 

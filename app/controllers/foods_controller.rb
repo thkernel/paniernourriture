@@ -1,6 +1,11 @@
 class FoodsController < ApplicationController
+  
+
+  before_action :authenticate_account!
   before_action :set_food, only: %i[ show edit update destroy ]
 
+  layout "dashboard"
+  
   # GET /foods or /foods.json
   def index
     @foods = Food.all
@@ -12,24 +17,30 @@ class FoodsController < ApplicationController
 
   # GET /foods/new
   def new
+    @food_categories = FoodCategory.all
     @food = Food.new
   end
 
   # GET /foods/1/edit
   def edit
+    @food_categories = FoodCategory.all
   end
 
   # POST /foods or /foods.json
   def create
-    @food = Food.new(food_params)
+    @food = current_account.foods.build(food_params)
 
     respond_to do |format|
       if @food.save
+        @food_categories = FoodCategory.all
+        @foods = Food.all
         format.html { redirect_to @food, notice: "Food was successfully created." }
         format.json { render :show, status: :created, location: @food }
+        format.js
       else
         format.html { render :new, status: :unprocessable_entity }
         format.json { render json: @food.errors, status: :unprocessable_entity }
+        format.js
       end
     end
   end
@@ -38,14 +49,23 @@ class FoodsController < ApplicationController
   def update
     respond_to do |format|
       if @food.update(food_params)
+        @food_categories = FoodCategory.all
+        @foods = Food.all
+
         format.html { redirect_to @food, notice: "Food was successfully updated." }
         format.json { render :show, status: :ok, location: @food }
+        format.js
       else
         format.html { render :edit, status: :unprocessable_entity }
         format.json { render json: @food.errors, status: :unprocessable_entity }
+        format.js
       end
     end
   end
+
+def delete
+      @food = Food.find_by(uid: params[:food_id])
+    end
 
   # DELETE /foods/1 or /foods/1.json
   def destroy
@@ -59,11 +79,11 @@ class FoodsController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_food
-      @food = Food.find(params[:id])
+      @food = Food.find_by(uid: params[:id])
     end
 
     # Only allow a list of trusted parameters through.
     def food_params
-      params.require(:food).permit(:uid, :slug, :name, :status, :description)
+      params.require(:food).permit(:food_category_id, :name,  :description)
     end
 end

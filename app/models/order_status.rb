@@ -21,4 +21,8 @@ class OrderStatus < ApplicationRecord
 
   
   belongs_to :account
+
+  def to_param
+    	"uid"
+    end
 end

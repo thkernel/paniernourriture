@@ -40,17 +40,17 @@ users = User.create([
     {
         first_name: "Amos", 
         last_name: "DEMBELE",
-        role_id: Role.find_by(name: "Superuser").id
+        #role_id: Role.find_by(name: "Superuser").id
     },
     {
         first_name: "Admin", 
         last_name: "Admin",
-        role_id: Role.find_by(name: "Administrateur").id
+        #role_id: Role.find_by(name: "Administrateur").id
     },
     {
         first_name: "Momo", 
         last_name: "THIAM",
-        role_id: Role.find_by(name: "Superuser").id
+        #role_id: Role.find_by(name: "Superuser").id
     }
 ])
 else
@@ -62,8 +62,8 @@ end
 unless Account.all.present?
 
     accounts = Account.create([
-        {accountable: users[0], login: "superuser",  email: "superuser@gmail.com",  password: "AMOSXZIBITDE88", password_confirmation: "AMOSXZIBITDE88"},
-        {accountable: users[2], login: "thiam",  email: "thiam@gmail.com",  password: "Root@2022", password_confirmation: "Root@2022"}
+        {accountable: users[0], login: "superuser",  email: "superuser@gmail.com",  password: "AMOSXZIBITDE88", password_confirmation: "AMOSXZIBITDE88", role_id: Role.find_by(name: "Superuser").id},
+        {accountable: users[2], login: "thiam",  email: "thiam@gmail.com",  password: "Root@2022", password_confirmation: "Root@2022", role_id: Role.find_by(name: "Superuser").id}
         
     
     ])

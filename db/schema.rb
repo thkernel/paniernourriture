@@ -22,6 +22,7 @@ ActiveRecord::Schema.define(version: 2021_10_04_174429) do
     t.string "encrypted_password", default: "", null: false
     t.string "accountable_type"
     t.bigint "accountable_id"
+    t.bigint "role_id", null: false
     t.string "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
@@ -43,6 +44,7 @@ ActiveRecord::Schema.define(version: 2021_10_04_174429) do
     t.index ["confirmation_token"], name: "index_accounts_on_confirmation_token", unique: true
     t.index ["email"], name: "index_accounts_on_email", unique: true
     t.index ["reset_password_token"], name: "index_accounts_on_reset_password_token", unique: true
+    t.index ["role_id"], name: "index_accounts_on_role_id"
     t.index ["unlock_token"], name: "index_accounts_on_unlock_token", unique: true
   end
 
@@ -113,6 +115,17 @@ ActiveRecord::Schema.define(version: 2021_10_04_174429) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
+  create_table "food_categories", force: :cascade do |t|
+    t.string "uid"
+    t.string "name"
+    t.text "description"
+    t.string "status"
+    t.bigint "account_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["account_id"], name: "index_food_categories_on_account_id"
+  end
+
   create_table "food_restaurants", force: :cascade do |t|
     t.string "uid"
     t.bigint "food_id", null: false
@@ -121,8 +134,10 @@ ActiveRecord::Schema.define(version: 2021_10_04_174429) do
     t.string "max_cooking_time"
     t.float "price"
     t.string "status"
+    t.bigint "account_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.index ["account_id"], name: "index_food_restaurants_on_account_id"
     t.index ["food_id"], name: "index_food_restaurants_on_food_id"
     t.index ["restaurant_id"], name: "index_food_restaurants_on_restaurant_id"
   end
@@ -130,6 +145,7 @@ ActiveRecord::Schema.define(version: 2021_10_04_174429) do
   create_table "foods", force: :cascade do |t|
     t.string "uid"
     t.string "slug"
+    t.bigint "food_category_id"
     t.string "name"
     t.string "status"
     t.text "description"
@@ -137,6 +153,7 @@ ActiveRecord::Schema.define(version: 2021_10_04_174429) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["account_id"], name: "index_foods_on_account_id"
+    t.index ["food_category_id"], name: "index_foods_on_food_category_id"
   end
 
   create_table "members", force: :cascade do |t|
@@ -235,8 +252,10 @@ ActiveRecord::Schema.define(version: 2021_10_04_174429) do
     t.string "zip_code"
     t.string "status"
     t.text "description"
+    t.bigint "account_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.index ["account_id"], name: "index_restaurants_on_account_id"
   end
 
   create_table "roles", force: :cascade do |t|
@@ -270,18 +289,20 @@ ActiveRecord::Schema.define(version: 2021_10_04_174429) do
     t.string "first_name"
     t.string "last_name"
     t.string "civility"
-    t.bigint "role_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["role_id"], name: "index_users_on_role_id"
   end
 
+  add_foreign_key "accounts", "roles"
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
   add_foreign_key "cities", "accounts"
+  add_foreign_key "food_categories", "accounts"
+  add_foreign_key "food_restaurants", "accounts"
   add_foreign_key "food_restaurants", "foods"
   add_foreign_key "food_restaurants", "restaurants"
   add_foreign_key "foods", "accounts"
+  add_foreign_key "foods", "food_categories"
   add_foreign_key "members", "restaurants"
   add_foreign_key "members", "roles"
   add_foreign_key "order_items", "foods"
@@ -293,6 +314,6 @@ ActiveRecord::Schema.define(version: 2021_10_04_174429) do
   add_foreign_key "permissions", "features"
   add_foreign_key "permissions", "roles"
   add_foreign_key "restaurant_opening_times", "restaurants"
+  add_foreign_key "restaurants", "accounts"
   add_foreign_key "smtp_server_settings", "accounts"
-  add_foreign_key "users", "roles"
 end

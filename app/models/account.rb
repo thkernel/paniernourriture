@@ -9,6 +9,7 @@
 #  encrypted_password     :string           default(""), not null
 #  accountable_type       :string
 #  accountable_id         :bigint
+#  role_id                :bigint           not null
 #  reset_password_token   :string
 #  reset_password_sent_at :datetime
 #  remember_created_at    :datetime
@@ -44,5 +45,41 @@ class Account < ApplicationRecord
 
 # Relationships
   belongs_to :accountable, polymorphic: true, optional: true
+
+  belongs_to :role
+  has_many :food_categories, dependent: :destroy
+  has_many :foods, dependent: :destroy
+  has_many :restaurants, dependent: :destroy
+  has_many :food_restaurants, dependent: :destroy
+  
+  # Change default params ID to uid
+  def to_param
+    uid
+  end
+
+  def superuser?
+    if self.role.name == "Superuser"
+      true 
+    else
+      false
+    end
+  end
+
+  def user?
+    if self.role.name == "user"
+      true 
+    else
+      false
+    end
+  end
+
+  def admin?
+    if self.role.name == "administrateur"
+      true 
+    else
+      false
+    end
+  end
+
 
 end

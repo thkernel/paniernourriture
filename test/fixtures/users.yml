@@ -7,7 +7,6 @@
 #  first_name :string
 #  last_name  :string
 #  civility   :string
-#  role_id    :bigint           not null
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
 #

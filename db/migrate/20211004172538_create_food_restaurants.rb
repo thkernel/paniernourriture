@@ -8,6 +8,7 @@ class CreateFoodRestaurants < ActiveRecord::Migration[6.1]
       t.string :max_cooking_time
       t.float :price
       t.string :status
+      t.references :account, null: false, foreign_key: true
 
       t.timestamps
     end

@@ -25,5 +25,7 @@ class Permission < ApplicationRecord
   #validates :name, presence: true, uniqueness: true
 
   accepts_nested_attributes_for :permission_items ,  allow_destroy: true
-
+  def to_param
+    	"uid"
+    end
 end

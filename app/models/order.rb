@@ -20,4 +20,8 @@ class Order < ApplicationRecord
   
   belongs_to :customer
   belongs_to :restaurant
+
+  def to_param
+    	"uid"
+    end
 end

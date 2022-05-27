@@ -1,37 +1,29 @@
-<%= form_with(model: food_restaurant) do |form| %>
-  <% if food_restaurant.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(food_restaurant.errors.count, "error") %> prohibited this food_restaurant from being saved:</h2>
+<%= form_with(model: food_restaurant, local: false) do |form| %>
+  <div class="modal-body">
+    <ul class="errors">
+    </ul>
 
-      <ul>
-        <% food_restaurant.errors.each do |error| %>
-          <li><%= error.full_message %></li>
-        <% end %>
-      </ul>
-    </div>
-  <% end %>
-
-  <div class="field">
-    <%= form.label :uid %>
-    <%= form.text_field :uid %>
+  <div class="form-group">
+    <%= form.label :food_id, "Nourriture", class: "required" %>
+    <%= form.collection_select :food_id, @foods, :id, :name,{prompt: "Sélectionner"}, class: "form-control",  style: "width: 100%", required: true %>
   </div>
 
-  <div class="field">
-    <%= form.label :food_id %>
-    <%= form.text_field :food_id %>
+  <div class="form-group">
+    <%= form.label :restaurant_id, class: "required" %>
+    <%= form.collection_select :restaurant_id, @restaurants, :id, :name,{prompt: "Sélectionner"}, class: "form-control",  style: "width: 100%", required: true %>
   </div>
 
-  <div class="field">
-    <%= form.label :restaurant_id %>
-    <%= form.text_field :restaurant_id %>
+  <div class="form-group">
+  
+    <%= form.label :price, "Prix", class: "required" %>
+    <%= form.number_field :price, class: "form-control", placeholder: "Prix", required: true %>
   </div>
 
-  <div class="field">
-    <%= form.label :status %>
-    <%= form.text_field :status %>
-  </div>
+  
 
-  <div class="actions">
-    <%= form.submit %>
+  </div><!-- modal body -->
+  <div class="modal-footer">
+    <%= link_to "Annuler", "#", class: "btn btn-secondary tx-mont tx-medium tx-11 tx-uppercase pd-y-12 pd-x-25 tx-spacing-1", data: {dismiss: "modal"} %>
+    <%= form.submit "Enregistrer",  class: "btn btn-primary tx-mont tx-medium tx-11 tx-uppercase pd-y-12 pd-x-25 tx-spacing-1",  "data-loading-text"=>"Loading...", autocomplete: "off" %>
   </div>
 <% end %>

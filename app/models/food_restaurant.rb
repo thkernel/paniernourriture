@@ -23,4 +23,8 @@ class FoodRestaurant < ApplicationRecord
   
   belongs_to :food
   belongs_to :restaurant
+
+  def to_param
+    	"uid"
+    end
 end

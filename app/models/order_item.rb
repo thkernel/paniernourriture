@@ -22,4 +22,8 @@ class OrderItem < ApplicationRecord
   
   belongs_to :order
   belongs_to :food
+
+  def to_param
+    	"uid"
+    end
 end

@@ -10,6 +10,8 @@ class DeviseCreateAccounts < ActiveRecord::Migration[6.1]
       t.string :email,              null: false, default: ""
       t.string :encrypted_password, null: false, default: ""
       t.references :accountable, polymorphic: true, index: true
+      t.references :role, null: false, foreign_key: true
+      
       ## Recoverable
       t.string   :reset_password_token
       t.datetime :reset_password_sent_at

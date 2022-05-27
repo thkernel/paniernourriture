@@ -14,6 +14,7 @@ class CreateRestaurants < ActiveRecord::Migration[6.1]
       t.string :zip_code
       t.string :status
       t.text :description
+      t.references :account, null: false, foreign_key: true
       
 
       t.timestamps

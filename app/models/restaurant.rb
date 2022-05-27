@@ -16,6 +16,7 @@
 #  zip_code    :string
 #  status      :string
 #  description :text
+#  account_id  :bigint           not null
 #  created_at  :datetime         not null
 #  updated_at  :datetime         not null
 #
@@ -27,4 +28,8 @@ class Restaurant < ApplicationRecord
 
   before_save :generate_random_number_uid
   
+  def to_param
+	"uid"
+  end
+    
 end

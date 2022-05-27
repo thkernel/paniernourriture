@@ -16,6 +16,7 @@
 #  zip_code    :string
 #  status      :string
 #  description :text
+#  account_id  :bigint           not null
 #  created_at  :datetime         not null
 #  updated_at  :datetime         not null
 #
