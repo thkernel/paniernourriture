@@ -51,6 +51,8 @@ class Account < ApplicationRecord
   has_many :foods, dependent: :destroy
   has_many :restaurants, dependent: :destroy
   has_many :food_restaurants, dependent: :destroy
+  has_many :restaurant_opening_times, dependent: :destroy
+  has_many :restaurant_daily_menus, dependent: :destroy
   
   # Change default params ID to uid
   def to_param

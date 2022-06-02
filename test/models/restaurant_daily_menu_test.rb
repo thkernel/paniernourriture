@@ -1,13 +1,12 @@
 # == Schema Information
 #
-# Table name: restaurant_opening_times
+# Table name: restaurant_daily_menus
 #
 #  id            :bigint           not null, primary key
 #  uid           :string
-#  restaurant_id :bigint           not null
 #  day           :string
-#  start_time    :time
-#  end_time      :time
+#  food_id       :bigint           not null
+#  restaurant_id :bigint           not null
 #  status        :string
 #  account_id    :bigint           not null
 #  created_at    :datetime         not null
@@ -16,7 +15,7 @@
 
 require "test_helper"
 
-class RestaurantOpeningTimeTest < ActiveSupport::TestCase
+class RestaurantDailyMenuTest < ActiveSupport::TestCase
   # test "the truth" do
   #   assert true
   # end

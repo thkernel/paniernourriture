@@ -1,13 +1,12 @@
 # == Schema Information
 #
-# Table name: restaurant_opening_times
+# Table name: restaurant_daily_menus
 #
 #  id            :bigint           not null, primary key
 #  uid           :string
-#  restaurant_id :bigint           not null
 #  day           :string
-#  start_time    :time
-#  end_time      :time
+#  food_id       :bigint           not null
+#  restaurant_id :bigint           not null
 #  status        :string
 #  account_id    :bigint           not null
 #  created_at    :datetime         not null
@@ -18,14 +17,16 @@
 
 one:
   uid: MyString
-  restaurant: one
   day: MyString
-  start_time: 2021-10-04 17:44:29
-  end_time: 2021-10-04 17:44:29
+  food: one
+  restaurant: one
+  status: MyString
+  account: one
 
 two:
   uid: MyString
-  restaurant: two
   day: MyString
-  start_time: 2021-10-04 17:44:29
-  end_time: 2021-10-04 17:44:29
+  food: two
+  restaurant: two
+  status: MyString
+  account: two

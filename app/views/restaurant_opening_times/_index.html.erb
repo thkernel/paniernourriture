@@ -1,0 +1,21 @@
+<% @restaurant_opening_times.each do |restaurant_opening_time| %>
+  <tr>
+    
+    <td><%= restaurant_opening_time.restaurant.name %></td>
+    <td><%= restaurant_opening_time.day %></td>
+    <td><%= restaurant_opening_time.start_time.strftime("%H:%M") %></td>
+    <td><%= restaurant_opening_time.end_time.strftime("%H:%M") %></td>
+    <td>
+        <div class="action-buttons">
+            <%= link_to raw('<i class="fa fa-pencil" aria-hidden="true"></i>
+'),  edit_restaurant_opening_time_path(restaurant_opening_time.uid), title: "Modifier", remote: true %>
+
+
+
+
+<%= link_to raw('<i class="far fa-trash-alt"></i>
+'), restaurant_opening_time_delete_path(restaurant_opening_time.uid), remote: true, title: "Supprimer", class: "delete" %>
+</div>
+</td>
+  </tr>
+<% end %>

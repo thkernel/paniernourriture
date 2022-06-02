@@ -1,0 +1,21 @@
+<% @restaurant_daily_menus.each do |restaurant_daily_menu| %>
+  <tr>
+    
+    <td><%= restaurant_daily_menu.day %></td>
+    <td><%= restaurant_daily_menu.food.name %></td>
+    <td><%= restaurant_daily_menu.restaurant.name %></td>
+    <td><%= restaurant_daily_menu.status %></td>
+    <td>
+        <div class="action-buttons">
+            <%= link_to raw('<i class="fa fa-pencil" aria-hidden="true"></i>
+'),  edit_restaurant_daily_menu_path(restaurant_daily_menu.uid), title: "Modifier", remote: true %>
+
+
+
+
+<%= link_to raw('<i class="far fa-trash-alt"></i>
+'), restaurant_daily_menu_delete_path(restaurant_daily_menu.uid), remote: true, title: "Supprimer", class: "delete" %>
+</div>
+</td>
+  </tr>
+<% end %>

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_10_04_174429) do
+ActiveRecord::Schema.define(version: 2022_05_27_192759) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -227,14 +227,31 @@ ActiveRecord::Schema.define(version: 2021_10_04_174429) do
     t.index ["role_id"], name: "index_permissions_on_role_id"
   end
 
+  create_table "restaurant_daily_menus", force: :cascade do |t|
+    t.string "uid"
+    t.string "day"
+    t.bigint "food_id", null: false
+    t.bigint "restaurant_id", null: false
+    t.string "status"
+    t.bigint "account_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["account_id"], name: "index_restaurant_daily_menus_on_account_id"
+    t.index ["food_id"], name: "index_restaurant_daily_menus_on_food_id"
+    t.index ["restaurant_id"], name: "index_restaurant_daily_menus_on_restaurant_id"
+  end
+
   create_table "restaurant_opening_times", force: :cascade do |t|
     t.string "uid"
     t.bigint "restaurant_id", null: false
     t.string "day"
     t.time "start_time"
     t.time "end_time"
+    t.string "status"
+    t.bigint "account_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.index ["account_id"], name: "index_restaurant_opening_times_on_account_id"
     t.index ["restaurant_id"], name: "index_restaurant_opening_times_on_restaurant_id"
   end
 
@@ -313,6 +330,10 @@ ActiveRecord::Schema.define(version: 2021_10_04_174429) do
   add_foreign_key "permission_items", "permissions"
   add_foreign_key "permissions", "features"
   add_foreign_key "permissions", "roles"
+  add_foreign_key "restaurant_daily_menus", "accounts"
+  add_foreign_key "restaurant_daily_menus", "foods"
+  add_foreign_key "restaurant_daily_menus", "restaurants"
+  add_foreign_key "restaurant_opening_times", "accounts"
   add_foreign_key "restaurant_opening_times", "restaurants"
   add_foreign_key "restaurants", "accounts"
   add_foreign_key "smtp_server_settings", "accounts"

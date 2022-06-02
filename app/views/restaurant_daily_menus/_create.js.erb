@@ -1,0 +1,11 @@
+$("ul.errors").html("");
+<% if @restaurant_daily_menu.errors.any? %>
+  <% @restaurant_daily_menu.errors.full_messages.each do |message| %>
+ 
+    $("ul.errors").append($('<div class="c-alert c-alert--danger" > ').html("<%= message.html_safe %> "));
+  <% end %>
+<% else %>
+  $(".restaurant-daily-menus").html("<%= escape_javascript(render 'index') %>");
+  $("#restaurant-daily-menu-modal").modal("hide");
+ 
+<% end %>

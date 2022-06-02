@@ -6,6 +6,8 @@ class CreateRestaurantOpeningTimes < ActiveRecord::Migration[6.1]
       t.string :day
       t.time :start_time
       t.time :end_time
+      t.string :status
+      t.references :account, null: false, foreign_key: true
 
       t.timestamps
     end

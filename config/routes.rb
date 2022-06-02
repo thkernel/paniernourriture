@@ -1,11 +1,14 @@
 Rails.application.routes.draw do
   
   
+  resources :restaurant_daily_menus, path: "restaurant-daily-menus" do 
+    get "delete"
+  end
   resources :food_categories, path: "food-categories" do 
     get "delete"
   end
   
-  resources :restaurant_opening_times do 
+  resources :restaurant_opening_times, path: "restaurant-opening-times" do 
     get "delete"
   end
   
