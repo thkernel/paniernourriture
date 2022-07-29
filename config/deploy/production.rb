@@ -11,10 +11,10 @@ set :deploy_to, "/home/ubuntu/apps/rails/paniernourriture/paniernourriture.prod"
 set :rails_env, "production"
 
 #server "51.38.235.131", user: "root", roles: %w{app db web}, ssh_options: {forward_agent: true}
-server "paniernourriture.com", user: "ubuntu", roles: %w{app db web}, ssh_options: {forward_agent: true}
+server "paniernourriture.com", user: "root", roles: %w{app db web}, ssh_options: {forward_agent: true}
 
 set :branch, "master"
-set :port, 3000
+set :port, 3010
 
 
 
@@ -75,9 +75,9 @@ set :port, 3000
 #   }
 
 
-set :pty, true
-set :ssh_options, {
-  forward_agent: true,
-  auth_methods: ["publickey"],
-  keys: ["~/paniernourriture.pem"]
-}
+#set :pty, true
+#set :ssh_options, {
+  #forward_agent: true,
+  #auth_methods: ["publickey"],
+  #keys: ["~/paniernourriture.pem"]
+#}

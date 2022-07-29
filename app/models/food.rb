@@ -19,12 +19,21 @@ class Food < ApplicationRecord
   # Include shared utils.
   include SharedUtils::Generate
 
-  before_save :generate_random_number_uid
+  before_save :generate_random_number_uid, :set_status
   
   belongs_to :food_category
+
+  has_one_attached :thumbnail
   # Change default params ID to uid
   def to_param
     uid
+  end
+
+
+  def set_status
+  	unless self.status.present?
+  		self.status = "Actif"
+  	end
   end
   
 end

@@ -1,5 +1,5 @@
 require_relative "boot"
-
+require 'uri'
 require "rails/all"
 require './lib/shared_utils/utils'
 # Require the gems listed in Gemfile, including any gems
